@@ -7,6 +7,19 @@ This repository contains a probabilistic pricing engine designed for the urban l
 
 The core challenge is balancing the **Operational Complexity Cost ($C_{op}$)** against the **Driver Acceptance Probability ($P(A)$)**.
 
+## Visual Analysis of Behavioral Dynamics
+
+The core innovation of this algorithm is moving beyond static "cost-plus" pricing to a probabilistic model of human behavior.
+
+The graph below illustrates the **Logistic Acceptance Function** utilized by the engine. The algorithm uses the inverse of this function to determine the minimal price point required to achieve a target Service Level Agreement (SLA).
+
+Examples highlighted in the graph:
+1.  **The Midpoint:** At a $20 margin, the model predicts a coin-flip (50%) chance of acceptance.
+2.  **Optimization Target:** To guarantee a 90% acceptance probability (ensuring low waiting times), the algorithm calculates that a margin of approximately $34.65 is required.
+
+![Driver Acceptance Curve](./acceptance_curve.png)
+*Figure 1: The modeled relationship between financial incentivization (Margin) and the stochastic probability of a driver accepting the job assignment.*
+
 ### 1. Complexity Modeling
 We model the operational effort as a linear vector of the physical constraints:
 
@@ -50,3 +63,4 @@ model = LogisticPricingModel()
 
 # Solve for price ensuring 85% probability of immediate driver acceptance
 quote = model.optimize_price_for_target_acceptance(job, target_prob=0.85)
+
