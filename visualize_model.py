@@ -1,7 +1,9 @@
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend to avoid display issues
 import matplotlib.pyplot as plt
 import numpy as np
 # Import the model class from your main script (assuming it's named pricing_engine.py)
-from pricing_engine import LogisticPricingModel
+from ver1.pricing_engine import LogisticPricingModel
 
 def generate_acceptance_curve_plot(filename="acceptance_curve.png"):
     """

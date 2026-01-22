@@ -87,10 +87,16 @@ if __name__ == "__main__":
     )
 
     model = LogisticPricingModel()
+    model_base_100= LogisticPricingModel(base_rate=100.0)
     
     # Calculate Optimal Price for 90% Driver Acceptance
     result = model.optimize_price_for_target_acceptance(request, target_prob=0.90)
+    result_100 = model_base_100.optimize_price_for_target_acceptance(request, target_prob=0.99)
     
+    print(f"--- Optimization Result ---")
+    print(f"Base Operational Cost: ${result_100['operational_cost']}")
+    print(f"Dynamic Margin Needed: ${result_100['required_margin']}")
+    print(f"Recommended Price:     ${result_100['final_price']}")
     print(f"--- Optimization Result ---")
     print(f"Base Operational Cost: ${result['operational_cost']}")
     print(f"Dynamic Margin Needed: ${result['required_margin']}")

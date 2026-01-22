@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "${workspaceFolder}/venv/bin/python3"
+        },
+        {
+            "name": "Python: simulation.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/simulation.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "${workspaceFolder}/venv/bin/python3"
+        },
+        {
+            "name": "Python: visualize_model.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/visualize_model.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "${workspaceFolder}/venv/bin/python3"
+        }
+    ]
+}
